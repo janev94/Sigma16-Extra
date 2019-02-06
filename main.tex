@@ -1,5 +1,7 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{hyperref}
 
 \title{Running Sigma16 Cheatsheet}
 
@@ -12,12 +14,6 @@
 
 
 WARNING: THIS GUIDE COMES WITH NO GUARANTEES. IT IS MEANT TO HELP YOU RUN SIGMA16 AT YOUR OWN MACHINE BUT PLEASE DO NOT, I REPEAT DO NOT FOLLOW IT BLINDLY AND EXPECT IT TO BE A RECIPE FOR SUCCESS. ALSO, THIS GUIDE IS RATHER SARCASTIC, PLEASE BEAR THAT IN MIND WHEN PROCEEDING. I DO NOT MEAN TO MAKE FUN OF YOU, BUT IT'S JUST MORE ENTERTAINING IF I DO SO!
-
-
-Notes:
-
- If you'd like to see a prettyer than txt version of this guide, feel free to go to $INSERT LINK HERE$
-
 
 
 \section{Introduction}
@@ -34,10 +30,27 @@ Notes:
  \begin{enumerate}
       
  
-   \item Open that scary dark thing called 'the terminal' and type sudo apt-get install wine-stable (because you do not want unstable thing laying around your PC. The person in front is already enough)
-   \item Make sure you've installed Wine. Type wine --version and you should see a version number appear if previous step went well or a crazy error message if you've messed something up.
+   \item Open that scary dark thing called 'the terminal' and type: 
+\begin{lstlisting}[language=Bash]
+
+ sudo apt-get install wine-stable
+\end{lstlisting}
+    (because you do not want unstable thing laying around your PC. The person in front is already enough)
+   \item Make sure you've installed Wine. Type
+\begin{lstlisting}[language=Bash]
+wine --version
+\end{lstlisting}
+and you should see a version number appear if previous step went well or a crazy error message if you've messed something up.
    \item Go to the directory where you extracted the sigma files using the terminal (the place where your sigma16.exe or sigma16.exe.exe is located)
-   \item In that directory type wine Sigma16.exe or wine Sigma16.exe.exe depending on which executable file you've got
+   \item In that directory type
+   \begin{lstlisting}[language=Bash]
+   wine Sigma16.exe
+\end{lstlisting}
+    or 
+       \begin{lstlisting}[language=Bash]
+   wine Sigma16.exe.exe
+\end{lstlisting}
+depending on which executable file you've got
    \item That is it you're all done. Wasn't so bad was it?
 \end{enumerate}
  \subsubsection{Mac (OSX)}
@@ -46,11 +59,20 @@ Notes:
    \item The first step is the same as with the linux folks. Open the scary thing called 'the terminal'
    \item Install wine, using home brew
    \item Navigate to the folder where you extracted your sigma files. The one with Sigma16.exe or Sigma16.exe.exe
-   \item Run wine Sigma16.exe or wine Sigma16.exe.exe, depending on which executable you've got
+   \item Run 
+      \begin{lstlisting}[language=Bash]
+   wine Sigma16.exe
+\end{lstlisting}
+    or 
+       \begin{lstlisting}[language=Bash]
+   wine Sigma16.exe.exe
+\end{lstlisting}
+depending on which executable you've got
    \item Enjoy the sigma experience!
 \end{enumerate}
 
-\subsection{Disclaimer:}
+\subsection{End of the section}
+ \textit{Disclaimer:}
  Congratulations! You are now officially running Sigma16. Please note that the product (both Wine and Sigma16 lol, but I've only participated in the development in one of them so do not blame me) is buggy and this guide takes no responsibility for any potential damage. Not that you are expected to receive some, but I'm just setting my insurance here.
 
 Q: What are the pros and cons of running it with wine.
@@ -63,7 +85,7 @@ A:
 
 
 \section{Running it the proper comp sci person (geeky) way. Install it from source.}
-Disclaimer:
+\textit{Disclaimer}:
  Here be DRAGONS!!!! Proceed at your own risk. This sounds very scary so be warned you are gonna have to use 'the terminal' again, use a real programming language and possibly edit some config files! Shocking, if you've got weak nerves and have not yelled at your screen before, you probably do not want to continue reading this section. Ok enough fireside talk let's get to business.
 
 
@@ -72,17 +94,46 @@ Disclaimer:
       
 
    \item Open the terminal. This should really be your habit by now... We'll only make use of this tool for the tutorial
-   \item Check if you've already got Haskell on your machine. Run ghc --version. If you see a version number make sure it's 8.0.2 or newer. If you see a message saying you do not have Haskell on your machine... How dare you, after all the university came up with the thing, surely you should be a Haskell expert studying in university of Glasgow.
-   \item Install haskell-platform if you do not already have one. If you do, proceed to step 3. Run sudo apt-get install haskell-platform. And make sure your version of haskell is at least 8.0.2 if it isn't bad times you are doomed, close your PC and run away... Or just go to the Troubleshoot section and serioucly consider upgrading your linux-distribution -.- .
+   \item Check if you've already got Haskell on your machine. Run 
+\begin{lstlisting}[language=Bash]
+ghc --version
+\end{lstlisting}
+If you see a version number make sure it's 8.0.2 or newer. If you see a message saying you do not have Haskell on your machine... How dare you, after all the university came up with the thing, surely you should be a Haskell expert studying in university of Glasgow.
+   \item Install haskell-platform if you do not already have one. If you do, proceed to step 3. Run
+   \begin{lstlisting}[language=Bash]
+   sudo apt-get install haskell-platform.
+\end{lstlisting}
+And make sure your version of haskell is at least 8.0.2 if it isn't bad times you are \textit{doomed}, close your PC and run away... Or just go to the Troubleshoot section and \textit{seriously} consider upgrading your linux-distribution -.- .
    \item In your terminal navigate to the folder where you extracted your sigma files e.g /home/USER/Sigma16-2.4.7
-   \item Run cabal update. If you do not have cabal at this point go to the troubleshoot section.
-   \item Run cabal install --only-dependencies
-   \item Run cp app/Main.hs src/haskell/Main.hs
-   \item Run ghci (at this point you should see the glourious haskell compiler's interpreter in action)
+   \item Run
+      \begin{lstlisting}[language=Bash]
+      cabal update
+\end{lstlisting}
+    If you do not have cabal at this point go to the troubleshoot section.
+   \item Run
+         \begin{lstlisting}[language=Bash]
+         cabal install --only-dependencies
+\end{lstlisting}
+
+   \item Run
+         \begin{lstlisting}[language=Bash]
+         cp app/Main.hs src/haskell/Main.hs
+\end{lstlisting}
+   \item Run 
+         \begin{lstlisting}[language=Bash]
+         ghci
+\end{lstlisting} (at this point you should see the glourious haskell compiler's interpreter in action)
    \item The next steps assume you are insude the ghci prompt
-   \item Run :load Main. If at that point you see src/haskell/SysEnv error, you've messed up. Go to the troubleshoot section...
-   \item Run main
-   \item That's it you've successfully interpreted Sigma16 on your own!!! Well... I'll just pretend I wasn't here. Now follow the onscreen instructions, open your browser and go to 127.0.0.1:8023
+   \item Run 
+         \begin{lstlisting}[language=Bash]
+         :load Main
+\end{lstlisting}
+If at that point you see src/haskell/SysEnv error, you've messed up. Go to the troubleshoot section...
+   \item Run 
+         \begin{lstlisting}[language=Bash]
+         main
+\end{lstlisting}
+   \item That's it you've successfully interpreted Sigma16 on your own!!! Well... I'll just pretend I wasn't here. Now follow the onscreen instructions, open your browser and go to \url{http://127.0.0.1:8023}
    \item If the page is constantly refreshing after you've done so go to the troubleshoot section
 
  \end{enumerate}
@@ -102,12 +153,30 @@ Disclaimer:
         \begin{enumerate}
              
         \item Go to your home directory
-        \item Run ( mkdir -p ~/.ghcup/bin \&\& curl https://raw.githubusercontent.com/haskell/ghcup/master/ghcup \> \~/.ghcup/bin/ghcup \&\& chmod +x ~/.ghcup/bin/ghcup) \&\& echo "Success"
+        \item Run
+                 \begin{lstlisting}[language=Bash]
+                 ( mkdir -p ~/.ghcup/bin && curl https://raw.githubusercontent.com/haskell/ghcup/master/ghcup > ~/.ghcup/bin/ghcup && chmod +x ~/.ghcup/bin/ghcup) && echo "Success"
+\end{lstlisting}
         \item If you do not see "Success" printed at the end... You're in some deep trouble contact me or John
-        \item Install haskell 8.0.2. Run ghcup install 8.0.2
-        \item Set 8.0.2 as your default haskell compiler. Run ghcup set 8.0.2
-        \item Install cabal. Run ghcup install-cabal
-        \item update the cabal-install. Run cabal new-install cabal-install
+        \item Install haskell 8.0.2. Run 
+                 \begin{lstlisting}[language=Bash]
+                 ghcup install 8.0.2
+\end{lstlisting}
+        \item Set 8.0.2 as your default haskell compiler. Run
+         \begin{lstlisting}[language=Bash]
+         ghcup set 8.0.2
+\end{lstlisting}
+        
+        \item Install cabal. Run
+         \begin{lstlisting}[language=Bash]
+         ghcup install-cabal
+\end{lstlisting}
+
+        \item update the cabal-install. Run
+         \begin{lstlisting}[language=Bash]
+         cabal new-install cabal-install
+\end{lstlisting}
+
         \item Continue from step 3 in the linux section.
         \end{enumerate}
 
@@ -122,7 +191,10 @@ Disclaimer:
              
         
         \item Go to the folder where your extracted sigma is.
-        \item Run EXPORT SIGMA16=`pwd`
+        \item Run
+                 \begin{lstlisting}[language=Bash]
+                         EXPORT SIGMA16=`pwd`
+\end{lstlisting}
         
         \textit{NOTE:} The characters around pwd are called backticks! Make sure you use those and not quotes!
 	\item You might consider adding SIGMA16 to your .bashrc, unless you want to do step2 everytime there's this issue.
@@ -136,5 +208,10 @@ Disclaimer:
  
         It's ok, probably your cabal is outdated. Just follow the instructions under \textit{"My Haskell is 7.X.X, HELP!"}
 
+\section{Final Words}
+ If you've found that useful, or have any critiques, comments or difficulties, feel free to contact me at m.yanev.1@research.gla.ac.uk. You know, just to say Thanks or Your guide was B*. Whatever you want, I am lonely and \textit{definitely} do not get a lot of email, but seriously contact me, I'll try and help you.
+ 
+ \textit{Note:}
+  I know LaTeX was probably a bad choice for the 'prettier' document. If you have found any troubles copy-pasting from this document, let me know and I might consider migrating it to something more clipboard-friendly.
 
 \end{document}
