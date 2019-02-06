@@ -1,0 +1,135 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Running Sigma16 Cheatsheet}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+
+\begin{document}
+
+\maketitle
+
+
+WARNING: THIS GUIDE COMES WITH NO GUARANTEES. IT IS MEANT TO HELP YOU RUN SIGMA16 AT YOUR OWN MACHINE BUT PLEASE DO NOT, I REPEAT DO NOT FOLLOW IT BLINDLY AND EXPECT IT TO BE A RECIPE FOR SUCCESS. ALSO, THIS GUIDE IS RATHER SARCASTIC, PLEASE BEAR THAT IN MIND WHEN PROCEEDING. I DO NOT MEAN TO MAKE FUN OF YOU, BUT IT'S JUST MORE ENTERTAINING IF I DO SO!
+
+
+Notes:
+
+ If you'd like to see a prettyer than txt version of this guide, feel free to go to $INSERT LINK HERE$
+
+
+
+\section{Introduction}
+
+ If you've got here you are either very lost, own a mac or just want to get that thing going. Perhaps because you've only got a few hours to submit your AX (Oops). Fear not, we are here to help. Follow the instructions below on how to get Sigma16 setup on your own machine.
+
+\section{Running it the easy (noob) way. Running with Wine.}
+
+\setcounter{subsection}{-1}
+ \subsection{Windows}
+   What are you doing here people... just double click the extracted Sigma16.exe thing and follow the instructions. Go to the other guides!!! Jeez, now that we've got them out of the way let's proceed.
+
+ \subsection{Linux-generic}
+ \begin{enumerate}
+      
+ 
+   \item Open that scary dark thing called 'the terminal' and type sudo apt-get install wine-stable (because you do not want unstable thing laying around your PC. The person in front is already enough)
+   \item Make sure you've installed Wine. Type wine --version and you should see a version number appear if previous step went well or a crazy error message if you've messed something up.
+   \item Go to the directory where you extracted the sigma files using the terminal (the place where your sigma16.exe or sigma16.exe.exe is located)
+   \item In that directory type wine Sigma16.exe or wine Sigma16.exe.exe depending on which executable file you've got
+   \item That is it you're all done. Wasn't so bad was it?
+\end{enumerate}
+ \subsubsection{Mac (OSX)}
+ \begin{enumerate}
+      
+   \item The first step is the same as with the linux folks. Open the scary thing called 'the terminal'
+   \item Install wine, using home brew
+   \item Navigate to the folder where you extracted your sigma files. The one with Sigma16.exe or Sigma16.exe.exe
+   \item Run wine Sigma16.exe or wine Sigma16.exe.exe, depending on which executable you've got
+   \item Enjoy the sigma experience!
+\end{enumerate}
+
+\subsection{Disclaimer:}
+ Congratulations! You are now officially running Sigma16. Please note that the product (both Wine and Sigma16 lol, but I've only participated in the development in one of them so do not blame me) is buggy and this guide takes no responsibility for any potential damage. Not that you are expected to receive some, but I'm just setting my insurance here.
+
+Q: What are the pros and cons of running it with wine.
+A:
+
+ Pros:
+
+
+ Cons:
+
+
+\section{Running it the proper comp sci person (geeky) way. Install it from source.}
+Disclaimer:
+ Here be DRAGONS!!!! Proceed at your own risk. This sounds very scary so be warned you are gonna have to use 'the terminal' again, use a real programming language and possibly edit some config files! Shocking, if you've got weak nerves and have not yelled at your screen before, you probably do not want to continue reading this section. Ok enough fireside talk let's get to business.
+
+
+ \subsection{Linux}
+ \begin{enumerate}
+      
+
+   \item Open the terminal. This should really be your habit by now... We'll only make use of this tool for the tutorial
+   \item Check if you've already got Haskell on your machine. Run ghc --version. If you see a version number make sure it's 8.0.2 or newer. If you see a message saying you do not have Haskell on your machine... How dare you, after all the university came up with the thing, surely you should be a Haskell expert studying in university of Glasgow.
+   \item Install haskell-platform if you do not already have one. If you do, proceed to step 3. Run sudo apt-get install haskell-platform. And make sure your version of haskell is at least 8.0.2 if it isn't bad times you are doomed, close your PC and run away... Or just go to the Troubleshoot section and serioucly consider upgrading your linux-distribution -.- .
+   \item In your terminal navigate to the folder where you extracted your sigma files e.g /home/USER/Sigma16-2.4.7
+   \item Run cabal update. If you do not have cabal at this point go to the troubleshoot section.
+   \item Run cabal install --only-dependencies
+   \item Run cp app/Main.hs src/haskell/Main.hs
+   \item Run ghci (at this point you should see the glourious haskell compiler's interpreter in action)
+   \item The next steps assume you are insude the ghci prompt
+   \item Run :load Main. If at that point you see src/haskell/SysEnv error, you've messed up. Go to the troubleshoot section...
+   \item Run main
+   \item That's it you've successfully interpreted Sigma16 on your own!!! Well... I'll just pretend I wasn't here. Now follow the onscreen instructions, open your browser and go to 127.0.0.1:8023
+   \item If the page is constantly refreshing after you've done so go to the troubleshoot section
+
+ \end{enumerate}
+
+\section{Troubleshoot}
+
+ \textbf{Issue:}
+ 
+\textit{ My haskell is 7.X.X, HELP!}
+ 
+\textit{ I do not have Cabal, what should I do?}
+
+\textbf{Resolution:}
+ 
+        \textit{Do the ghcup magic. Cast spells, make potions, lift curses and pray for the best.}
+        
+        \begin{enumerate}
+             
+        \item Go to your home directory
+        \item Run ( mkdir -p ~/.ghcup/bin \&\& curl https://raw.githubusercontent.com/haskell/ghcup/master/ghcup > ~/.ghcup/bin/ghcup \&\& chmod +x ~/.ghcup/bin/ghcup) \&\& echo "Success"
+        \item If you do not see "Success" printed at the end... You're in some deep trouble contact me or John
+        \item Install haskell 8.0.2. Run ghcup install 8.0.2
+        \item Set 8.0.2 as your default haskell compiler. Run ghcup set 8.0.2
+        \item Install cabal. Run ghcup install-cabal
+        \item update the cabal-install. Run cabal new-install cabal-install
+        \item Continue from step 3 in the linux section.
+        \end{enumerate}
+
+ \textbf{Issue:}
+ 
+ \textit{Web page is constantly refreshing I cannot see my Sigma in the browser.}
+ 
+ \textbf{Resolution:}
+ 
+        Well, well, well. Look who's back here. Now there, there, we'll help you again. Most likely, you've encountered an issue where your sigma missinterpets your data directory that is ok, we'll fix it.
+        1. Go to the folder where your extracted sigma is.
+        2. Run EXPORT SIGMA16=`pwd`
+        NOTE: The characters around pwd are called backticks! Make sure you use those and not quotes!
+	3. You might consider adding SIGMA16 to your .bashrc, unless you want to do step2 everytime there's this issue.
+
+ \textbf{Issue:} 
+ 
+ \textit{I've messed up :(. I see src/haskell/SysEnv error whenever I try to load Main.}
+ 
+ \textbf{Resolution:}
+ 
+        It's ok, probably your cabal is outdated. Just follow the instructions under \textit{"My Haskell is 7.X.X, HELP!"}
+
+
+\end{document}
