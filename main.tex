@@ -91,9 +91,9 @@ Disclaimer:
 
  \textbf{Issue:}
  
-\textit{ My haskell is 7.X.X, HELP!}
+\textit{ My haskell is \textbf{7.X.X}, HELP!}
  
-\textit{ I do not have Cabal, what should I do?}
+\textit{ \textbf{I do not have Cabal}, what should I do?}
 
 \textbf{Resolution:}
  
@@ -102,7 +102,7 @@ Disclaimer:
         \begin{enumerate}
              
         \item Go to your home directory
-        \item Run ( mkdir -p ~/.ghcup/bin \&\& curl https://raw.githubusercontent.com/haskell/ghcup/master/ghcup > ~/.ghcup/bin/ghcup \&\& chmod +x ~/.ghcup/bin/ghcup) \&\& echo "Success"
+        \item Run ( mkdir -p ~/.ghcup/bin \&\& curl https://raw.githubusercontent.com/haskell/ghcup/master/ghcup \> \~/.ghcup/bin/ghcup \&\& chmod +x ~/.ghcup/bin/ghcup) \&\& echo "Success"
         \item If you do not see "Success" printed at the end... You're in some deep trouble contact me or John
         \item Install haskell 8.0.2. Run ghcup install 8.0.2
         \item Set 8.0.2 as your default haskell compiler. Run ghcup set 8.0.2
@@ -113,19 +113,24 @@ Disclaimer:
 
  \textbf{Issue:}
  
- \textit{Web page is constantly refreshing I cannot see my Sigma in the browser.}
+ \textit{Web page is constantly \textbf{refreshing} I cannot see my Sigma in the browser.}
  
  \textbf{Resolution:}
  
         Well, well, well. Look who's back here. Now there, there, we'll help you again. Most likely, you've encountered an issue where your sigma missinterpets your data directory that is ok, we'll fix it.
-        1. Go to the folder where your extracted sigma is.
-        2. Run EXPORT SIGMA16=`pwd`
-        NOTE: The characters around pwd are called backticks! Make sure you use those and not quotes!
-	3. You might consider adding SIGMA16 to your .bashrc, unless you want to do step2 everytime there's this issue.
+        \begin{enumerate}
+             
+        
+        \item Go to the folder where your extracted sigma is.
+        \item Run EXPORT SIGMA16=`pwd`
+        
+        \textit{NOTE:} The characters around pwd are called backticks! Make sure you use those and not quotes!
+	\item You might consider adding SIGMA16 to your .bashrc, unless you want to do step2 everytime there's this issue.
+    \end{enumerate}
 
  \textbf{Issue:} 
  
- \textit{I've messed up :(. I see src/haskell/SysEnv error whenever I try to load Main.}
+ \textit{I've messed up :(. I see \textbf{src/haskell/SysEnv error} whenever I try to load Main.}
  
  \textbf{Resolution:}
  
