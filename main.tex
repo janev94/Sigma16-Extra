@@ -166,6 +166,11 @@ You are in luck, since Brew decided to not support Haskell-platform anymore, bec
 
 \section{Troubleshoot}
 
+\textit{Note:} If you do not see your problem here it might be worth to report it, or you might have hit an older version of the document. To check whether the latter is correct you can go to: \url{https://github.com/janev94/Sigma16-Extra/}
+and check whether a new version was submitted recently, or I've given up support for the document altogether :(
+
+
+
 \textbf{Issue:} \textit{I do not know how to open that scary thing called 'The terminal'?} Before you judge me for putting this up here - it's a true story, I am not gonna call out names, but some of you have asked me that in the past.
 
 \textbf{Resolution:}
@@ -260,6 +265,29 @@ EXPORT SIGMA16=`pwd`
  \textbf{Resolution:}
  
         It's ok, probably your cabal is outdated. Just follow the instructions under \textit{"My Haskell is 7.X.X, HELP!"}
+
+\textbf{Issue:}
+ \textit{My Sigma does not do anything when I press "Assemble"}
+ 
+\textbf{Resolution:}
+ You might be experiencing one of the most rare `features' of Sigma. To verify that this is the case open the terminal(console) window and check whether you get some message for invalid ascii characters. If you do, then you are one of the few chosen ones that get to have the full Sigma 16 experience! But seriously, it is a weird bug we're trying to trace down (unsuccessfully so far as you can see), but fear not, we've got the work-around nailed down! So what you need to do is:
+ \begin{enumerate}
+     \item Copy all the code you currently have on your clipboard (or save it to a file)
+     \item Press the 'Example' button
+     \item Go the the Assembler and press Assemble
+     \item Now that your sigma is all patched-up, simply delete the example and replace it with your code, which was not willing to assemble
+ \end{enumerate}
+
+\textbf{Issue:}
+ \textit{Sigma complains that \textbf{cmpgt/cmplt/cmpeg/jumpf/jumpt} are invalid instructions}
+ 
+\textbf{Resolution:}
+
+Now, this is usually version dependent. For example, if you are running 2.3.X you will experience Sigma pretending not to know what these instructions are (How dare you Sigma, the students know you are fooling them around). So your two options now are either:
+\begin{enumerate}
+    \item Call your tutor and ask them to explain you how the \textbf{cmp/jumplt\\/jumpgt etc} instructions work (Oh no, learning more stuff!)
+    \item Go to the Moodle page and download a version that \textit{does} understand these instructions, e.g. 2.4.X and use that to assemble your code.
+\end{enumerate}
 
 \section{Final Words}
  If you've found that useful, or have any critiques, comments or difficulties, feel free to contact me at m.yanev.1@research.gla.ac.uk. You know, just to say Thanks or Your guide was B*. Whatever you want, I am lonely and \textit{definitely} do not get a lot of email, but seriously contact me, I'll try and help you.
